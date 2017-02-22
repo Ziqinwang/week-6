@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <!-- CSS Imports -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
 
     <!-- Start HTML -->
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="file:///D:/study/MUSAJAVA/week-6/assignment/js/images/640-1.jpg" style="width:100%">
+        <div class="text">Caption one</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="file:///D:/study/MUSAJAVA/week-6/assignment/js/images/640-2.jpg" style="width:100%">
+        <div class="text">Caption two</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="file:///D:/study/MUSAJAVA/week-6/assignment/js/images/640-3.jpg" style="width:100%">
+        <div class="text">Caption three</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">4 / 3</div>
+        <img src="file:///D:/study/MUSAJAVA/week-6/assignment/js/images/640-4.jpeg" style="width:100%">
+        <div class="text">Caption four</div>
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
 
     <!-- End HTML -->
 
     <!-- Start Javascript Imports -->
-    <script src="basicApplication.js"></script>
+    <script src="js/jquery-2.2.0.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/basicApplication.js"></script>
     <!-- End Javascript Imports -->
 
   </body>

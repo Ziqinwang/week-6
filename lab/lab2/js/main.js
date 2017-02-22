@@ -127,7 +127,13 @@ var dataset = "https://raw.githubusercontent.com/CPLN692-MUSA611/datasets/master
 var featureGroup;
 
 var myStyle = function(feature) {
-  return {};
+  switch (feature.properties.COLLDAY) {
+            case 'MON': return {color: "#0099e5"};
+            case 'THU': return {color: "#ff4c4c"};
+            case 'FRI': return {color: "#34bf49"};
+            case 'TUE': return {color: "#00a98f"};
+            case 'WED': return {color: "#ff0000"};
+        }
 };
 
 var showResults = function() {
@@ -143,21 +149,48 @@ var showResults = function() {
   $('#results').show();
 };
 
+var closeResults = function(){
+  $('#intro').show();
+  // => <div id="results">
+  $('#results').hide();
+};
+
+$("#bo").click(function(){
+ closeResults();
+});
+
 
 var eachFeatureFunction = function(layer) {
+  //console.log(layer);
+  //console.log(layer.feature);
   layer.on('click', function (event) {
     /* =====================
     The following code will run every time a layer on the map is clicked.
     Check out layer.feature to see some useful data about the layer that
     you can use in your application.
     ===================== */
-    console.log(layer.feature);
+    switch (layer.feature.properties.COLLDAY) {
+              case 'MON':  $(".day-of-week").text('Monday');
+              break;
+              case 'THU':  $(".day-of-week").text('Thursday');
+              break;
+              case 'FRI':  $(".day-of-week").text('Friday');
+              break;
+              case 'TUE':  $(".day-of-week").text('Tuesday');
+              break;
+              case 'WED':  $(".day-of-week").text('Wednesday');
+          }
+           //console.log(layer._leaflet_id)
+    map.fitBounds(event.target.getBounds());
+    $(".ID").text(layer._leaflet_id);
     showResults();
   });
 };
 
 var myFilter = function(feature) {
-  return true;
+  if ( feature.properties.COLLDAY !== " "){
+    return true;
+  }
 };
 
 $(document).ready(function() {
@@ -167,6 +200,12 @@ $(document).ready(function() {
       style: myStyle,
       filter: myFilter
     }).addTo(map);
+
+    //console.log(parsedData);
+    var count =_.countBy(parsedData.features, function(num) {
+          return  num.properties.COLLDAY;
+                        });
+    console.log(count);
 
     // quite similar to _.each
     featureGroup.eachLayer(eachFeatureFunction);

@@ -28,7 +28,48 @@ p.main {
 }
 
 .legend {
+  border: 1px dashed #0000ff;
+  right: 20%;
+  left:80%;
   position: absolute;
-  background-color: #fff;
   z-index: 2000;
+  font-size:12px;
+
+
+}
+table {
+  position: absolute;
+  left: 28px;
+  width: 100px;
+  bottom: 0;
+  top: 450px;
+}
+td {
+  padding-top: 5px;
+  min-width: 10px;
+}
+
+#bo {
+  float: right;
+  width: 50px;
+}
+
+#MON {
+  background-color: #0099e5;
+}
+
+#THU {
+  background-color: #ff4c4c;
+}
+
+#WED {
+  background-color: #ff0000;
+}
+
+#TUE {
+  background-color: #00a98f;
+}
+
+#FRI {
+  background-color: #34bf49;
 }
